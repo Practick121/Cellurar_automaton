@@ -45,12 +45,13 @@ class Table(Sprite):
     def generate(self):
         for i in range(self.cnt_cells):
             for j in range(self.cnt_cells):
-                if self.cnt_cells / 2 - 8 <= i <= self.cnt_cells / 2 + 8 and self.cnt_cells / 2 - 8 <= j <= self.cnt_cells / 2 + 8:
-                    health = int(randint(1, 100) <= CHANCE)
-                else:
-                    health = 0
-                #health = int(randint(1, 100) <= CHANCE)
+                health = int(randint(1, 100) <= CHANCE)
                 self.matrix[i][j] = health
+                # if self.cnt_cells / 2 - 8 <= i <= self.cnt_cells / 2 + 8 and
+                # self.cnt_cells / 2 - 8 <= j <= self.cnt_cells / 2 + 8:
+                # else:
+                #    health = 0
+                # health = int(randint(1, 100) <= CHANCE
 
     def clean(self):
         for i in range(self.cnt_cells):
