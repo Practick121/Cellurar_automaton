@@ -5,9 +5,8 @@ ticks = 0
 cnt_iter = 0
 
 
-T = 1 / FPS
 delay_run = Timer(DELAY)
-timer1 = Timer(T)
+timer1 = Timer(1 / FPS)
 timer2 = Timer(2)
 cnt_frames = 0
 while is_running:
@@ -28,7 +27,7 @@ while is_running:
 
     if timer2.is_out():
         print(cnt_frames / 2)
-        timer2 = Timer(2)
+        timer2.wind_up()
         cnt_frames = 0
 
     clock_ips.tick(IPS)
