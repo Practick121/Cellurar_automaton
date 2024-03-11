@@ -38,6 +38,39 @@ def processing_own_events():
         Table.status = CLEAN
 
 
+def upload_file():
+    i = 1
+    while i <= 100:
+        try:
+            file = open(f'data{i}', 'x')
+            break
+        except FileExistsError:
+            i += 1
+    else:
+        print('Не удалось создать файл')
+        return
+    for table in Table.tables:
+        file.write('[')
+        for string in table.matrix:
+            file.write(', '.join([str(elem) for elem in string]))
+            file.write('\n')
+        file.write(']')
+    file.close()
+
+
+def open_file():
+    try:
+        file = open('data', 'r')
+    except FileExistsError:
+        print('Не удалось открыть файл')
+        return
+    file.read()
+    file.split('\n')
+    for i in range(len(Table.tables[0])):
+        for j in range(len(Table.tables[0])):
+            Table.tables[0].matrix[i][j] = file[i][j]
+
+
 def to_run():
     Transmission.gl_status = RUN
 
