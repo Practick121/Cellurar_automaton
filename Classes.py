@@ -41,6 +41,7 @@ class Cell:
 
 class Table(Sprite):
     status = STOP
+    tables = []
 
     def generate(self):
         for i in range(self.cnt_cells):
@@ -68,6 +69,7 @@ class Table(Sprite):
         self.surf = Surface(TABLE_SIZE)
         self.rect = self.surf.get_rect(topleft=coord)
         self.last_touch = (-1, -1)
+        Table.tables.append(self)
 
     def get_cell_rect(self, j, i, grand=False):
         if not grand:
@@ -79,7 +81,7 @@ class Table(Sprite):
         for i in range(self.cnt_cells):
             for j in range(self.cnt_cells):
                 crd = (j * self.cell_size[0], i * self.cell_size[1])
-                cell = Cell(crd, (self.cell_size[0] - 1, self.cell_size[1] - 1), self.matrix[i][j])
+                cell = Cell(crd, (self.cell_size[0], self.cell_size[1]), self.matrix[i][j])
                 cell.render(self.surf)
         window.blit(self.surf, self.rect)
 
