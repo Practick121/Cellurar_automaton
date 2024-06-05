@@ -1,5 +1,5 @@
 from defenition import Surface
-from defenition import BLACK, BRIGHT_BLUE, CHANCE, TABLE_SIZE, NUMBER_OF_CELLS, TYPE_NEIGHBORS, SEC, DELAY
+from defenition import BLACK, BRIGHT_BLUE, CHANCE, TABLE_SIZE, NUMBER_OF_CELLS, TYPE_NEIGHBOURS, SEC, DELAY
 from defenition import RUN, GENERATE, CLEAN, STOP, LIVE_COLOR, DEATH_COLOR, GRID
 from defenition import randint, font, font_list, mouse, time, event
 
