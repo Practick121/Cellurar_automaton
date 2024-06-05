@@ -63,14 +63,14 @@ class Table(Sprite):
                 else:
                     window.blit(self.death_surf, crd)
 
-    def cnt_neighbors(self, x, y):
+    def cnt_neighbours(self, x, y):
         number = 0
         number += int(y > 0 and self.matrix[y - 1][x])
         number += int(x > 0 and self.matrix[y][x - 1])
         number += int(x < self.cnt_cells - 1 and self.matrix[y][(x + 1)])
         number += int(y < self.cnt_cells - 1 and self.matrix[(y + 1) % self.cnt_cells][x])
 
-        if TYPE_NEIGHBORS == '8':
+        if TYPE_NEIGHBOURS == '8':
             number += int(y > 0 and x > 0 and self.matrix[y - 1][x - 1])
             number += int(y > 0 and x < self.cnt_cells - 1 and self.matrix[y - 1][
                 (x + 1) % self.cnt_cells])
@@ -86,7 +86,7 @@ class Table(Sprite):
             new_matrix.append([])
             for j in range(self.cnt_cells):
                 health = self.matrix[i][j]
-                cnt = self.cnt_neighbors(j, i)
+                cnt = self.cnt_neighbours(j, i)
                 if health == 0 and cnt in Transmission.Birth:
                     new_matrix[i].append(1)
                 elif health == 1 and cnt not in Transmission.Survive:
